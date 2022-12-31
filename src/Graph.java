@@ -44,6 +44,8 @@ public class Graph extends JFrame {
     }
 
 
+
+
     public static Polygon subdivide(Polygon polygon) {
 
         var p0 = new Vector2(polygon.xpoints[0], polygon.ypoints[0]);
@@ -64,11 +66,13 @@ public class Graph extends JFrame {
         var ortho1 = center1.orthogonalVector(p011).normalize().multiply(Vector2.height(thirdLength));
         var p013 = center1.add(ortho1);
 
-        //Calculation of the right triangle
-        //add 1/3 of the length to p1
 
-        return null;
+        //create the new polygon
+        var xPoints = new int[]{(int) p0.x, (int) p011.x, (int) p013.x, (int) p012.x, (int) p1.x, (int) p2.x};
+        var yPoints = new int[]{(int) p0.y, (int) p011.y, (int) p013.y, (int) p012.y, (int) p1.y, (int) p2.y};
+        var newPolygon = new Polygon(xPoints, yPoints, 6);
 
+        return newPolygon;
     }
 
 
